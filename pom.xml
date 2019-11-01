@@ -45,27 +45,38 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-                <!--  cobertura plugin start -->
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>cobertura-maven-plugin</artifactId>
-                    <version>2.7</version>
-                    <configuration>
-                        <formats>
-                            <format>html</format>
-                            <format>xml</format>
-                        </formats>
-                        <instrumentation>
-                            <excludes>
-                                <exclude>com/**/*Tests.class</exclude>
-                            </excludes>
-                        </instrumentation>
-                    </configuration>
-                </plugin>
-                <!--  cobertura plugin end -->
+            <!--  cobertura plugin start -->
+            <plugin>
+                <!--jdk8 不支持codehaus？推荐：java里 使用apache-ant和cobertura测试代码覆盖率 环境变量配置-->
+                <!--http://www.itkeyword.com/doc/2121142525218560x437/cobertura-maven-plugin-with-java-8-->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                    <instrumentation>
+                        <excludes>
+                            <exclude>com/**/*Tests.class</exclude>
+                        </excludes>
+                    </instrumentation>
+                </configuration>
+            </plugin>
+            <!--  cobertura plugin end -->
         </plugins>
     </build>
 
