@@ -1,4 +1,4 @@
 server:
   port: 8090
 app:
-  environment: dev开发
+  environment: dev开发wys
