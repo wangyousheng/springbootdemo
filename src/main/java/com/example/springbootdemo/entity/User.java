@@ -19,6 +19,6 @@ public class User {
     @NotNull(message = "name不能为空")
     private String name;
     @Min(value = 0,message = "age<0")
-    @Max(value = 100,message = "age>0")
+    @Max(value = 100,message = "age>100")
     private int age;
 }
